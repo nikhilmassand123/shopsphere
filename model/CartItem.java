@@ -1,0 +1,21 @@
+package com.shopsphere.model;
+
+public class CartItem {
+    private final Product product;
+    private int quantity;
+
+    public CartItem(Product product, int quantity) {
+        this.product = product;
+        this.quantity = quantity;
+    }
+
+    public Product getProduct() { return product; }
+    public int getQuantity() { return quantity; }
+    public void addQuantity(int qty) { this.quantity += qty; }
+    public double getSubtotal() { return product.getPrice() * quantity; }
+
+    @Override
+    public String toString() {
+        return String.format("%-22s x%-3d Rs %9.2f", product.getName(), quantity, getSubtotal());
+    }
+}
